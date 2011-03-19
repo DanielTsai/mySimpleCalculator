@@ -7,16 +7,24 @@
 //
 
 #import "simpleCalculatorAppDelegate.h"
-
 #import "simpleCalculatorViewController.h"
 
 @implementation simpleCalculatorAppDelegate
 
 
-@synthesize window=_window;
+@synthesize window;
+@synthesize viewController;
 
-@synthesize viewController=_viewController;
-
+/*
+-(void)applicationDidFinishLaunching:(UIApplication *)application
+{
+    simpleCalculatorViewController* _simpleCalculatorVC = [[simpleCalculatorViewController alloc] initWithNibName:@"simpleCalculatorViewController" bundle:nil];
+    self.viewController = _simpleCalculatorVC;
+    [_simpleCalculatorVC release];
+    [window addSubview:[viewController view]];
+    [window makeKeyAndVisible];
+}
+*/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -67,9 +75,9 @@
 
 - (void)dealloc
 {
-    [_window release];
-    [_viewController release];
+    [window release];
+    [viewController release];
     [super dealloc];
-}
+} 
 
 @end
